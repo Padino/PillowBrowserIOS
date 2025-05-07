@@ -1,0 +1,41 @@
+[
+  {
+    "trigger": {
+      "url-filter": ".*",
+      "if-domain": [
+        "*google-analytics.com",
+        "*googletagmanager.com",
+        "*doubleclick.net",
+        "*facebook.net",
+        "*facebook.com/tr",
+        "*analytics.*",
+        "*tracker.*",
+        "*tracking.*"
+      ]
+    },
+    "action": {
+      "type": "block"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": ".*",
+      "resource-type": ["script"],
+      "if-domain": ["*"]
+    },
+    "action": {
+      "type": "css-display-none",
+      "selector": ".ad, [class*=\"ad-\"], [id*=\"ad-\"], [class*=\"_ad_\"], [id*=\"_ad_\"], iframe[src*=\"ad\"], div[data-ad]"
+    }
+  },
+  {
+    "trigger": {
+      "url-filter": ".*",
+      "load-type": ["third-party"],
+      "resource-type": ["image", "style-sheet", "script", "font", "raw", "svg-document", "media", "other"]
+    },
+    "action": {
+      "type": "block-cookies"
+    }
+  }
+] 
